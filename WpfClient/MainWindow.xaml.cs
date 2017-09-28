@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace WpfClient
 {
@@ -43,11 +44,11 @@ namespace WpfClient
                         };
 
                         Logger.Instance.Info("Sender: " + received.Sender);
-                        //MessageWindow.Text = received.Message;
+                        MessageWindow.Dispatcher.Invoke(() => MessageWindow.Text += received.Message + "\n");
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        Logger.Instance.Error("Wrong response");
+                        Logger.Instance.Error("Wrong response - " + e);
                     }
                 }
             });
@@ -66,10 +67,11 @@ namespace WpfClient
             {
                 var datagram = Encoding.ASCII.GetBytes(String.Format("{0}: {1}", UserNameBox.Text, MessageBox.Text));
                 client.Send(datagram, datagram.Length, new IPEndPoint(IPAddress.Parse(Address.Text), Int32.Parse(Port.Text)));
+                MessageWindow.Text += String.Format("{0}: {1}", UserNameBox.Text, MessageBox.Text) + "\n";
             }
             catch
             {
-                MessageWindow.Text = "Wrong address!";
+                MessageWindow.Text += "Wrong address!\n";
             }
         }
     }
