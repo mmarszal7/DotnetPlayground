@@ -45,6 +45,7 @@ namespace WpfClient
 
                         Logger.Instance.Info("Sender: " + received.Sender);
                         MessageWindow.Dispatcher.Invoke(() => MessageWindow.Text += received.Message + "\n");
+                        Scroll.Dispatcher.Invoke(() => Scroll.ScrollToBottom());
                     }
                     catch (Exception e)
                     {
@@ -68,10 +69,12 @@ namespace WpfClient
                 var datagram = Encoding.ASCII.GetBytes(String.Format("{0}: {1}", UserNameBox.Text, MessageBox.Text));
                 client.Send(datagram, datagram.Length, new IPEndPoint(IPAddress.Parse(Address.Text), Int32.Parse(Port.Text)));
                 MessageWindow.Text += String.Format("{0}: {1}", UserNameBox.Text, MessageBox.Text) + "\n";
+                Scroll.ScrollToBottom();
             }
             catch
             {
                 MessageWindow.Text += "Wrong address!\n";
+                Scroll.ScrollToBottom();
             }
         }
     }

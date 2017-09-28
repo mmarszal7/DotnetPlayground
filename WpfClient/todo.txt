@@ -1,2 +1,0 @@
-MainWindow.xaml - line 46 - WPF with multiThreading (showing message in window)
-https://stackoverflow.com/questions/21348125/how-to-execute-task-in-the-wpf-background-while-able-to-provide-report-and-allow
