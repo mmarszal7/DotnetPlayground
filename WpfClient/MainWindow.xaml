@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="UDPMessenger" MaxHeight="350" MaxWidth="525" MinHeight="350" MinWidth="525">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="MyAddress" Padding="2" Margin="0 0 10 0" Text="Connection Error!"/>
+        <TextBox x:Name="UserNameBox" Grid.Column="1" Text="Name" Padding="2" Margin="0 0 10 0" GotFocus="txtBox_GotFocus"/>
+        <TextBox x:Name="Address" Text="127.0.0.1" Grid.Column="2" Margin="0 0 10 0" Padding="2"/>
+        <TextBox x:Name="Port" Text="32123" Grid.Column="3" Margin="0 0 10 0" Padding="2" GotFocus="txtBox_GotFocus"/>
+
+        <TextBox x:Name="MessageWindow" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Margin="0 10 10 10" Padding="5"/>
+        <TextBox x:Name="MessageBox" Grid.ColumnSpan="2" Grid.Row="2" Text="Message" Padding="2" Margin="0 0 10 0" GotFocus="txtBox_GotFocus"/>
+        <Button Content="Send" Grid.Row="2" Grid.Column="3" Click="Send" />
+    </Grid>
+</Window>
