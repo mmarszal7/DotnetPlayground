@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
@@ -7,11 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Threading;
-using System.Xml;
 using System.Xml.Serialization;
+using UPDCommunicator.Common;
 
-namespace WpfClient
+namespace UDPCommunicator.Client
 {
     public struct Received
     {

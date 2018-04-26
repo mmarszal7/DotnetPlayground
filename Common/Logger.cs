@@ -1,14 +1,8 @@
-﻿namespace WpfClient
+﻿namespace UPDCommunicator.Common
 {
-    public sealed class Logger
+    public static class Logger
     {
-        #region Private members
-
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-
-        #endregion
-
-        #region Construction
 
         public static NLog.Logger Instance
         {
@@ -17,7 +11,5 @@
                 return Logger.logger;
             }
         }
-
-        #endregion
     }
 }
