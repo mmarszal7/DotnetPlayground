@@ -5,6 +5,8 @@ VS extensions:
 - Ctrl + Click Go to definition
 - Custom Document Well			
 - Solution Error Visualizer
+- Git Diff Margin
+- Object Exporter
  
 VS Code extensions:
 - Auto Rename Tag
