@@ -23,6 +23,7 @@ VS Code config:
     "files.autoSave": "onWindowChange",
     "window.zoomLevel": 0.6,
     "terminal.integrated.fontSize": 12,
+    "editor.formatOnSave": true,
     "javascript.implicitProjectConfig.experimentalDecorators": true,
     "php.validate.executablePath": "C:/xampp/php/php.exe",
 	"python.pythonPath": "C:/Anaconda3/python",
