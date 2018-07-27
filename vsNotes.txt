@@ -19,18 +19,23 @@ VS Code config:
 {
     "workbench.colorTheme": "Visual Studio Light",
     "workbench.iconTheme": "vscode-icons",
+    "vsicons.projectDetection.autoReload": true,
     "workbench.editor.enablePreview": false,
+    
     "files.autoSave": "onWindowChange",
     "window.zoomLevel": 0.6,
     "terminal.integrated.fontSize": 12,
     "editor.formatOnSave": true,
+    
     "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
     "php.validate.executablePath": "C:/xampp/php/php.exe",
-	"python.pythonPath": "C:/Anaconda3/python",
-    "python.linting.pylintArgs": [
-        "--errors-only"
-    ],
-    "vsicons.projectDetection.autoReload": true,
+    "python.pythonPath": "C:/Anaconda3/python",
+    "python.linting.pylintArgs": ["--errors-only"],
+    
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
     "editor.tokenColorCustomizations":{
         "textMateRules": [
             {
