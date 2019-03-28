@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Custom For Loop</Title>
+			<Author>Mateusz Marszalek</Author>
+			<Description>Creates custom for loop</Description>
+			<Shortcut>looop</Shortcut>
+		</Header>
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>iterator</ID>
+					<ToolTip>Value to print</ToolTip>
+					<Default>i</Default>
+				</Literal>
+				<Literal>
+					<ID>collection</ID>
+					<ToolTip>Collection</ToolTip>
+					<Default>collection</Default>
+				</Literal>
+				<Literal>
+					<ID>text</ID>
+					<ToolTip>Value description</ToolTip>
+					<Default>someText: </Default>
+				</Literal>
+			</Declarations>
+            <Code Language="CSharp">
+                <![CDATA[
+				foreach(var $iterator$ in $collection$)
+					Console.WriteLine("$text$" + i.ToString());
+				]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
