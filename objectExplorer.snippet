@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Object Explorer</Title>
+			<Author>Mateusz Marszalek</Author>
+			<Description>Exports object to json file</Description>
+			<Shortcut>oe</Shortcut>
+		</Header>
+        <Snippet>
+			<Declarations>
+				<Literal>
+					<ID>objectName</ID>
+					<ToolTip>Name of the object to export</ToolTip>
+					<Default>objectName</Default>
+				</Literal>
+			</Declarations>
+            <Code Language="CSharp">
+                <![CDATA[
+				System.IO.File.WriteAllText(@"c:\temp\object.json", JsonConvert.SerializeObject($objectName$, Formatting.Indented));
+				]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
