@@ -11,38 +11,42 @@ namespace References
             unsafe
             {
                 TypedReference tr = __makeref(original);
-                Console.WriteLine($"Passing referece type by value:\t\t\t\t {original}\nMemory location:\t\t\t\t\t {**(IntPtr**)(&tr)}");
+                Console.Write($"Passing referece type by value:\t\t\t\t {original}\nMemory location:\t\t\t\t\t {**(IntPtr**)(&tr)}");
             }
+            Console.ReadLine();
             PassByValue(original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t {original}\n");
 
             unsafe
             {
                 TypedReference tr = __makeref(original);
-                Console.WriteLine($"Passing referece type by reference:\t\t\t {original}\nMemory location:\t\t\t\t\t {**(IntPtr**)(&tr)}");
+                Console.Write($"Passing referece type by reference:\t\t\t {original}\nMemory location:\t\t\t\t\t {**(IntPtr**)(&tr)}");
             }
+            Console.ReadLine();
             PassByReference(ref original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t {original}\n");
 
             unsafe
             {
                 TypedReference tr = __makeref(original);
-                Console.WriteLine($"Reassigning referece type passed to a method by value:\t {original}\nMemory location:\t\t\t\t\t {**(IntPtr**)(&tr)}");
+                Console.Write($"Reassigning referece type passed to a method by value:\t {original}\nMemory location:\t\t\t\t\t {**(IntPtr**)(&tr)}");
             }
+            Console.ReadLine();
             PassByValueAndReassign(original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t {original}\n");
 
             unsafe
             {
                 TypedReference tr = __makeref(original);
-                Console.WriteLine($"Reassigning referece type passed to a method by reference: {original}\nMemory location:\t\t\t\t\t {**(IntPtr**)(&tr)}");
+                Console.Write($"Reassigning referece type passed to a method by reference: {original}\nMemory location:\t\t\t\t\t {**(IntPtr**)(&tr)}");
             }
+            Console.ReadLine();
             PassByReferenceAndReassign(ref original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t {original}\n");
 
             Console.WriteLine(@"Summary:
 - Reference types are always passed by reference
-- For referenc types ref keyword works as an alias to value containing address - any changes to original object (including reassigning) will affect both variables");
+- For reference types ref keyword works as an alias to value containing address - any changes to original object (including reassigning) will affect both variables");
             Console.ReadLine();
         }
 

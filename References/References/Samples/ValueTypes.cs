@@ -8,11 +8,13 @@ namespace References
         {
             var original = 0;
 
-            Console.WriteLine($"Passing value type by value\t\t {original}");
+            Console.Write($"Passing value type by value\t\t {original}");
+            Console.ReadLine();
             PassByValue(original);
             Console.WriteLine($"Changes visible to the Caller\t\t {original}\n");
 
-            Console.WriteLine($"Passing value type by reference\t\t {original}");
+            Console.Write($"Passing value type by reference\t\t {original}");
+            Console.ReadLine();
             PassByReference(ref original);
             Console.WriteLine($"Changes visible to the Caller\t\t {original}\n");
 

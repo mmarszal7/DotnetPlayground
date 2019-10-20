@@ -1,4 +1,4 @@
-# C# References
+﻿# C# References
 
 **Passing value types:**<br>
 
@@ -70,3 +70,14 @@ void Caller()
 * List of reference types (**ListOfReferenceTypes.cs**):
   - passing by value AND reference:
     - reassign AND update/add/delete/replace list item
+
+---
+## Demo presentation - Reference and value types:
+1. Why? To understand and summarize data flow.
+2. Drawing + Possible scenarios.
+3. Copy/Clone - memory management:
+	- Which one is used for passing objects to methods (example of Tree objects)?
+	- If it is always copy, so how we pass Reference types? Still by value but value = memory address
+4. Demo explanation.
+5. Always the same question: what will be the result of the function?
+6. Biggest problems -> Lists management in UIs (WPF, Blazor)

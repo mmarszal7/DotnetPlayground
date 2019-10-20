@@ -11,31 +11,37 @@ namespace References
 
             // Update Item
             var original = new List<int> { 1, 2, 3 };
-            Console.WriteLine($"(Update Item) Passing list of referece types by value:\t\t\t {String.Join(", ", original)}");
+            Console.Write($"(Update Item) Passing list of referece types by value:\t\t\t {String.Join(", ", original)}");
+            Console.ReadLine();
             PassByValueAndUpdateItem(original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t\t\t {String.Join(", ", original)}\n");
 
-            Console.WriteLine($"(Update Item) Passing list of referece types by reference:\t\t {String.Join(", ", original)}");
+            Console.Write($"(Update Item) Passing list of referece types by reference:\t\t {String.Join(", ", original)}");
+            Console.ReadLine();
             PassByReferenceUpdateItem(ref original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t\t\t {String.Join(", ", original)}\n");
 
             // Reassign collection
             original = new List<int> { 1, 2, 3 };
-            Console.WriteLine($"(Reassign collection) Passing list of reference type by value:\t\t {String.Join(", ", original)}");
+            Console.Write($"(Reassign collection) Passing list of reference type by value:\t\t {String.Join(", ", original)}");
+            Console.ReadLine();
             PassByValueAndReassign(original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t\t\t {String.Join(", ", original)}\n");
 
-            Console.WriteLine($"(Reassign collection) Passing list of reference type by reference:\t {String.Join(", ", original)}");
+            Console.Write($"(Reassign collection) Passing list of reference type by reference:\t {String.Join(", ", original)}");
+            Console.ReadLine();
             PassByReferenceAndReassign(ref original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t\t\t {String.Join(", ", original)}-\n");
 
             // Replace item
             original = new List<int> { 1, 2, 3 };
-            Console.WriteLine($"(Replace item) Passing list of reference type by value:\t\t\t {String.Join(", ", original)}");
+            Console.Write($"(Replace item) Passing list of reference type by value:\t\t\t {String.Join(", ", original)}");
+            Console.ReadLine();
             PassByValueAndReplaceItem(original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t\t\t {String.Join(", ", original)}\n");
 
-            Console.WriteLine($"(Replace item) Passing list of reference type by reference:\t\t {String.Join(", ", original)}");
+            Console.Write($"(Replace item) Passing list of reference type by reference:\t\t {String.Join(", ", original)}");
+            Console.ReadLine();
             PassByReferenceAndReplaceItem(ref original);
             Console.WriteLine($"Changes visible to the Caller:\t\t\t\t\t\t {String.Join(", ", original)}\n");
 
