@@ -1,7 +1,43 @@
 It is simplified version of [Jeremy Bytes] sample application, made as a part of [Task, Await, and Asynchronous Methods] presentation.
 
 # Notes
+## 1. Overview
+**Asynchronous** code is based on **Callbacks**. Which means asynchronous IS NOT parallel execution.<br>
+**Asynchronous** is about giving control over long running tasks to a different thread and then managing callback (data, exceptions, cancelations etc.)<br>
+**Parallel execution** can be achieved e.g. by running multiple tasks at once and then managing their responses with **WhenAll()**<br>
+**So async/await is mostly used for I/O operations** (database or web connection, reading files etc) that don't need CPU but takes long to wait for external response
+
+### **Flow**:
+- Code is running synchronously until it reaches Task which is Promise of future data with specific type.
+- Started task is continued on different thread than invoker and invoker state is saved (not paused) for the execution time.
+- When code reaches 'await' keyword it either gets data from completed task or (most often) waits for task to complete.
+- When it reaches another long running operation it starts a new thread and return control to invoker
+- When task is completed invoker is resumed and the rest of an invoker code is running synchronously
+<br><br>
+
+### **Await vs Result vs Wait() vs ContinueWith()**:
+
+**Result** returns data, **Wait()** not. Wait() and Result both blocks invoker until task is completed<br>
+**ContinueWith()** and **await** do the same thing but await is more syntax friendly and ContinueWith allow to configure more things:
+- continuation based on Task.State - ContinueWith can be executed e.g. only if task was cancelled or failed 
+- cancelation token
+- context - you can specify in which Thread task should be continued after competition (useful e.g. in UI apps where you need to continue tasks in UI Thread)
+- exception handling - you always get all exceptions from all levels aggregated in AggregateException
+
+```C#
+// ContinueWith
+var task = new Task(() => {Task.Delay(3000); return 5;});
+task.Start()
+task.ContinueWith(task => Console.WriteLine("Finished" + task.Result), token, continuationConditions, context);
+task.Wait();
+
+// await
+var result = await Delay();
+Console.WriteLine("Finished" + result);
+```
+
 ---
+## 2. Best practices
 
 MSDN Link: https://msdn.microsoft.com/en-us/magazine/jj991977.aspx
 
