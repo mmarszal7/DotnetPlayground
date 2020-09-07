@@ -4,7 +4,7 @@ It is simplified version of [Jeremy Bytes] sample application, made as a part of
 ## 1. Overview
 **Asynchronous** code is based on **Callbacks**. Which means asynchronous IS NOT parallel execution.<br>
 **Asynchronous** is about giving control over long running tasks to a different thread and then managing callback (data, exceptions, cancelations etc.)<br>
-**Parallel execution** can be achieved e.g. by running multiple tasks at once and then managing their responses with **WhenAll()**<br>
+**Parallel execution** (see example in 3.) can be achieved e.g. by running multiple tasks at once and then managing their responses with **WhenAll()**<br>
 **So async/await is mostly used for I/O operations** (database or web connection, reading files etc) that don't need CPU but takes long to wait for external response
 
 ### **Flow**:
@@ -100,3 +100,33 @@ Async-ready producer/consumer structures	        | TPL Dataflow or AsyncCollecti
 
 [Jeremy Bytes]: http://www.jeremybytes.com/
 [Task, Await, and Asynchronous Methods]: http://www.jeremybytes.com/Demos.aspx#TaskAndAwait
+
+## 3. Parallel execution - example
+``` C#
+// Overall processing time = 2sec
+public async Task GoodExample()
+{
+    var tasks = new List<Task>();
+    for (var i = 0; i < 5; i++)
+    {
+        tasks.Add(LongRunningOperation());
+    }
+    await Task.WhenAll(tasks);
+}
+
+// Overall processing time = 10sec
+public async Task BadExample()
+{
+    for (var i = 0; i < 5; i++)
+    {
+        await LongRunningOperation();
+    }
+}
+
+private async Task LongRunningOperation()
+{
+    Console.WriteLine("Start processing...");
+    await Task.Delay(2000);
+    Console.WriteLine("End");
+}
+```
