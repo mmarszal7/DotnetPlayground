@@ -114,6 +114,15 @@ public async Task GoodExample()
     await Task.WhenAll(tasks);
 }
 
+// Overall processing time = 2sec
+public void GoodExample2()
+{
+    Parallel.ForEach(new List<int>() { 1, 2, 3, 4, 5 }, c =>
+    {
+      LongRunningOperation().Wait();
+    });
+}
+
 // Overall processing time = 10sec
 public async Task BadExample()
 {
